@@ -2,21 +2,19 @@ package ru.javamentor.preproject_spring.service;
 
 import ru.javamentor.preproject_spring.model.User;
 import java.util.List;
-import java.util.Optional;
 
 public interface UserService {
 
-    public List<User> getAllUsers();
+    List<User> getAllUsers();
 
-    public boolean addUser(User user);
+    boolean addUser(User user);
 
-    public boolean updateUser(User user);
+    boolean updateUser(User user);
 
-    public long getIdByLogin(String login);
+    boolean deleteUserById(long id);
 
-    public boolean deleteUserByLogin(String login);
+//  boolean validateUser(User user);
 
-    public boolean validateUser(User user);
+//  Optional<User> getUserByLogin(String login);
 
-    public Optional<User> getUserByLogin(String login);
 }

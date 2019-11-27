@@ -6,7 +6,7 @@
     <title>
         Admin panel
     </title>
-    <link href="/resource/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="/WEB-INF/resource/css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
@@ -32,14 +32,14 @@
             </td>
             <td>
                 <form action="/admin/delete" method="POST">
-                    <input type="hidden" value=${user.login} name="login">
+                    <input type="hidden" value=${user.id} name="id">
                     <input class="buttons" type="submit" value="Delete">
                 </form>
             </td>
         </tr>
     </c:forEach>
 </table>
-<form action="/resource/jsp/add.jsp">
+<form action="/admin/add">
     <input class="add" type="submit" value="Add">
 </form>
 </body>

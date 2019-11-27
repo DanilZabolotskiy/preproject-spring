@@ -5,7 +5,6 @@ import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ru.javamentor.preproject_spring.model.User;
-import ru.javamentor.preproject_spring.util.DBHelper;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 import java.util.Optional;
@@ -13,12 +12,8 @@ import java.util.Optional;
 @Component
 public class UserDaoImpl implements UserDao {
 
-    private SessionFactory sessionFactory;
-
     @Autowired
-    public UserDaoImpl(DBHelper dbHelper) {
-        sessionFactory = dbHelper.getSessionFactory();
-    }
+    private SessionFactory sessionFactory;
 
     @Override
     public List<User> getAllUsers() {
@@ -56,23 +51,14 @@ public class UserDaoImpl implements UserDao {
     }
 
     @Override
-    public boolean deleteByLogin(String login) {
-        String hql = "delete User u where u.login= :login";
+    public boolean deleteById(long id) {
+        String hql = "delete User u where u.id= :id";
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.createQuery(hql).setParameter("login", login).executeUpdate();
+        session.createQuery(hql).setParameter("id", id).executeUpdate();
         session.getTransaction().commit();
         session.close();
         return true;
-    }
-
-    @Override
-    public long findIdByLogin(String login) {
-        Optional<User> user = findUserByLogin(login);
-        if (user.isPresent()) {
-            return user.get().getId();
-        }
-        return -1;
     }
 
     public Optional<User> findUserByLogin(String login) {

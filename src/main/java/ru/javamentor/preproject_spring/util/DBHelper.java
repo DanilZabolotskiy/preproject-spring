@@ -10,14 +10,8 @@ import ru.javamentor.preproject_spring.model.User;
 @Component
 public class DBHelper {
 
-    private SessionFactory sessionFactory;
-
-    private DBHelper() {
-        sessionFactory = createSessionFactory();
-    }
-
     public SessionFactory getSessionFactory() {
-        return sessionFactory;
+        return createSessionFactory();
     }
 
     private Configuration getMySqlConfiguration() {

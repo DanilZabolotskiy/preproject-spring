@@ -12,9 +12,7 @@ public interface UserDao {
 
     boolean updateUser(User user);
 
-    boolean deleteByLogin(String login);
-
-    long findIdByLogin(String login);
+    boolean deleteById(long id);
 
     Optional<User> findUserByLogin(String login);
 }

@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import ru.javamentor.preproject_spring.dao.UserDao;
 import ru.javamentor.preproject_spring.model.User;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -29,25 +28,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public long getIdByLogin(String login) {
-        return dao.findIdByLogin(login);
+    public boolean deleteUserById(long id) {
+        return dao.deleteById(id);
     }
 
-    @Override
-    public boolean deleteUserByLogin(String login) {
-        return dao.deleteByLogin(login);
-    }
-
-    @Override
+ /*   @Override
     public boolean validateUser(User user) {
         Optional<User> foundUser = dao.findUserByLogin(user.getLogin());
         return foundUser.filter(user1 ->
                 user.getPassword().equals(user1.getPassword())).isPresent();
-    }
+    }*/
 
-    @Override
+  /* @Override
     public Optional<User> getUserByLogin(String login) {
         return dao.findUserByLogin(login);
-    }
+    }*/
 
 }

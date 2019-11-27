@@ -23,10 +23,14 @@ public class User {
 
     public User(){}
 
-    public User(String login, String password) {
+    public User(long id){
+        this.id = id;
+    }
+
+/*    public User(String login, String password) {
         this.login = login;
         this.password = password;
-    }
+    }*/
 
     public User(String login, String password, String role) {
         this.login = login;

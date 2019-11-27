@@ -1,6 +1,7 @@
 package ru.javamentor.preproject_spring.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -8,7 +9,7 @@ import ru.javamentor.preproject_spring.model.User;
 import ru.javamentor.preproject_spring.service.UserService;
 import java.util.List;
 
-@org.springframework.stereotype.Controller
+@Controller
 public class AdminController{
 
     @Autowired
@@ -32,7 +33,7 @@ public class AdminController{
 
     @RequestMapping(path = "/admin/add", method = RequestMethod.POST)
     public String addUser(User user) {
-        return userService.addUser(user) ? "redirect:/admin" : "User are contains already";
+        return userService.addUser(user) ? "redirect:/admin" : "user_contains_already";
     }
 
     @RequestMapping(path = "/admin/edit", method = RequestMethod.POST)
@@ -46,6 +47,12 @@ public class AdminController{
     @RequestMapping(path = "/admin/edit/save", method = RequestMethod.POST)
     public String saveModifiedUser(User user){
         userService.updateUser(user);
+        return "redirect:/admin";
+    }
+
+    @RequestMapping(path = "/admin/delete", method = RequestMethod.POST)
+    public String deleteUser(User user){
+        userService.deleteUserById(user.getId());
         return "redirect:/admin";
     }
 }
