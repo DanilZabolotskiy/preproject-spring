@@ -53,8 +53,8 @@ public class AdminController {
     }
 
     @RequestMapping(path = "/admin/edit", method = RequestMethod.POST)
-    public ModelAndView getEditUserPage(@RequestParam(value = "login") String login) {
-        ModelAndView modelAndView = new ModelAndView();
+    public ModelAndView getEditUserPage(@RequestParam(value = "login") String login,
+                                        ModelAndView modelAndView) {
         User user = userService.getUserByLogin(login).get();
         Set<String> rolesNames = new HashSet<>();
         user.getRoles().forEach(e -> rolesNames.add(e.getRoleName()));
