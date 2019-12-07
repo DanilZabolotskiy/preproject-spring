@@ -6,7 +6,7 @@
     <title>
         Admin panel
     </title>
-    <link href="/WEB-INF/resource/css/style.css" rel="stylesheet" type="text/css"/>
+    <link href="./css/style.css" rel="stylesheet" type="text/css"/>
 </head>
 
 <body>
@@ -20,13 +20,10 @@
         <tr class="row">
             <td>${user.login}</td>
             <td>${user.password}</td>
-            <td>${user.role}</td>
+            <td>${user.roles}</td>
             <td>
                 <form action="/admin/edit" method="POST">
-                    <input type="hidden" value=${user.id} name="id">
                     <input type="hidden" value=${user.login} name="login">
-                    <input type="hidden" value=${user.password} name="password">
-                    <input type="hidden" value=${user.role} name="role">
                     <input class="buttons" type="submit" value="Edit">
                 </form>
             </td>

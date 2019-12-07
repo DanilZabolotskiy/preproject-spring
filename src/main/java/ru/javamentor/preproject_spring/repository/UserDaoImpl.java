@@ -1,19 +1,21 @@
-package ru.javamentor.preproject_spring.dao;
+package ru.javamentor.preproject_spring.repository;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 import ru.javamentor.preproject_spring.model.User;
 import javax.persistence.criteria.CriteriaQuery;
 import java.util.List;
 import java.util.Optional;
 
-@Component
+@Repository
 public class UserDaoImpl implements UserDao {
 
-    @Autowired
-    private SessionFactory sessionFactory;
+    private final SessionFactory sessionFactory;
+
+    public UserDaoImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public List<User> getAllUsers() {

@@ -18,11 +18,9 @@
         <input type="text" name="password" id="password">
     </p>
     <p>
-        <label for="role">Role:</label>
-        <select  name="role" id="role">
-            <option name="admin">admin</option>
-            <option name="user">user</option>
-        </select>
+        <label>Role:</label><br>
+        <input type="checkbox" name="roleAdmin" value="admin">admin<br>
+        <input type="checkbox" name="roleUser" value="user">user<br>
     </p>
     <input class="submit" type="submit" value="Add">
 </form>

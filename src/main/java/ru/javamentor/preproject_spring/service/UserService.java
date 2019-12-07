@@ -1,7 +1,9 @@
 package ru.javamentor.preproject_spring.service;
 
 import ru.javamentor.preproject_spring.model.User;
+
 import java.util.List;
+import java.util.Optional;
 
 public interface UserService {
 
@@ -15,6 +17,6 @@ public interface UserService {
 
 //  boolean validateUser(User user);
 
-//  Optional<User> getUserByLogin(String login);
+    Optional<User> getUserByLogin(String login);
 
 }

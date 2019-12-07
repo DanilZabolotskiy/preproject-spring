@@ -1,14 +1,17 @@
 package ru.javamentor.preproject_spring.config;
 
+import org.springframework.core.annotation.Order;
 import org.springframework.web.filter.CharacterEncodingFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import javax.servlet.Filter;
 
+@Order(1)
 public class AppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
 
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class[0];
+        return new Class<?>[]{SecurityConfig.class};
     }
 
     @Override

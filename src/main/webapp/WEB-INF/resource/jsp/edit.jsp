@@ -10,6 +10,7 @@
 <body>
 
 <c:set value="${user}" var="user" />
+<c:set value="${rolesNames}" var="rolesNames" />
 
 <form  action="/admin/edit/save" method="POST">
     <input type="hidden" value=${user.id} name="id">
@@ -22,12 +23,11 @@
         <input type="text" name="password" id="password" value=${user.password}>
     </p>
     <p>
-        <label for="role">Role:</label>
-        <select  name="role" id="role">
-            <option name="admin">admin</option>
-            <option name="user">user</option>
-            <option selected>${user.role}</option>
-        </select>
+        <label>Role:</label><br>
+        <input type="checkbox" name="roleAdmin" value="admin"
+               <c:if test="${rolesNames.contains('admin')}">checked</c:if>>admin<br>
+        <input type="checkbox" name="roleUser" value="user"
+               <c:if test="${rolesNames.contains('user')}">checked</c:if>>user<br>
     </p>
     <input class="submit" type="submit" value="Save">
 </form>
